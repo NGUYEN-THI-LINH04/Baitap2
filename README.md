@@ -64,5 +64,41 @@ Mở file: sudo nano django_app/pawnshop/admin.py
   <img width="1920" height="1080" alt="Screenshot 2026-05-07 214542" src="https://github.com/user-attachments/assets/abe6ba9a-524f-433a-b9d7-6abd8c2f0344" />
   <img width="1920" height="1080" alt="Screenshot 2026-05-07 214549" src="https://github.com/user-attachments/assets/3bef86af-d452-4931-b88e-aeabf33dc265" />
   <img width="1920" height="1080" alt="Screenshot 2026-05-07 214558" src="https://github.com/user-attachments/assets/e25d3c14-d36c-4604-b48a-6f7e95cd741f" />
+- Test FK hoạt động đúng:
+  
+   + Thêm dữ liệu thử
+     + Thêm khách hàng
+ <img width="952" height="1034" alt="Screenshot 2026-05-07 211042" src="https://github.com/user-attachments/assets/196aca95-71fd-4ba9-adeb-ab7109afafb2" />
+<img width="1920" height="1080" alt="Screenshot 2026-05-07 211434" src="https://github.com/user-attachments/assets/95389cda-f18f-4e7c-95e4-256f621593ab" />
+- Template HTML + Jinja2 + View
+- Tạo thư mục templates > - Đang ở: ~/camdo_project
+  + Chạy: mkdir -p ~/camdo_project/django_app/templates
+- Tạo file home.html:sudo nano ~/camdo_project/django_app/templates/home.html
+  <img width="972" height="1029" alt="Screenshot 2026-05-07 211715" src="https://github.com/user-attachments/assets/559116fc-2acd-4979-b54f-88ae8b7885a5" />
+- Tạo view
+   + sudo nano ~/camdo_project/django_app/pawnshop/views.py
+  <img width="983" height="1041" alt="Screenshot 2026-05-07 211744" src="https://github.com/user-attachments/assets/f8389285-9a4b-4aa2-8dc1-801edb9f028b" />
+- Mở: sudo nano ~/camdo_project/django_app/config/urls.py
+  <img width="969" height="1031" alt="Screenshot 2026-05-07 211824" src="https://github.com/user-attachments/assets/b937bbd6-c9dc-4ffb-bfd7-4121e26df2f4" />
+
+- sau đó Restart Django: docker compose restart django
+
+- Mở website vào : http://192.168.1.7:8000 -> sẽ thấy: Danh sách con nợ quá hạn,đã trả và chưa hết hạn
+  <img width="1920" height="1080" alt="Screenshot 2026-05-07 214239" src="https://github.com/user-attachments/assets/c9ad4447-ab53-4ab8-a81f-d1ba84cb77b9" />
+
+- Kiểm tra dữ liệu bằng phpMyAdmin
+  <img width="1920" height="1080" alt="Screenshot 2026-05-07 214549" src="https://github.com/user-attachments/assets/b5ecb361-487e-4db2-b39e-22c932f5f740" />
+  <img width="1920" height="1080" alt="Screenshot 2026-05-07 214558" src="https://github.com/user-attachments/assets/eadb3cfe-ba7b-4333-8266-96c9abd037f0" />
+- Cài cloudflared
+  + wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+  + sudo dpkg -i cloudflared-linux-amd64.deb
+- Chạy domain tunnel tạm thời: cloudflared tunnel --url http://localhost:8000 nó sẽ hiện thị-> sau đó sửa file :sudo nano django_app/config/settings.py
+  <img width="1476" height="758" alt="Screenshot 2026-05-07 221558" src="https://github.com/user-attachments/assets/05a6a884-9852-4c9f-8a22-8dd783c43413" />
+- test
+  + Mở http://camdo.nguyenthilinhk58.id.vn/admin
+  <img width="1920" height="1080" alt="Screenshot 2026-05-07 222651" src="https://github.com/user-attachments/assets/af16a50e-8337-4de9-bc79-8ee4f537620a" />
+  + Mở http://camdo.nguyenthilinhk58.id.vn
+    <img width="1920" height="1080" alt="Screenshot 2026-05-07 222705" src="https://github.com/user-attachments/assets/9c0e88f2-bed1-499c-8eb5-bdd01e618167" />
+
 
 
